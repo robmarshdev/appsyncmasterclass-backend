@@ -1,0 +1,14 @@
+{
+  "name": "appsyncmasterclass-backend",
+  "version": "1.0.0",
+  "description": "Backend for the AppSync Masterclass demo app",
+  "main": "index.js",
+  "repository": "https://github.com/robmarshdev/appsyncmasterclass-backend.git",
+  "author": "Robert Marsh <rob.dmind@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "serverless": "2.4.0",
+    "serverless-appsync-plugin": "^1.4.0"
+  }
+}
