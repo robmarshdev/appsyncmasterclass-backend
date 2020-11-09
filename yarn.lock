@@ -604,6 +604,20 @@ aws-sdk@^2.404.0, aws-sdk@^2.763.0:
     uuid "3.3.2"
     xml2js "0.4.19"
 
+aws-sdk@^2.783.0:
+  version "2.783.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.783.0.tgz#f6a2fb2d1af2e7c5a6ec2959436499ff5b6c705b"
+  dependencies:
+    buffer "4.9.2"
+    events "1.1.1"
+    ieee754 "1.1.13"
+    jmespath "0.15.0"
+    querystring "0.2.0"
+    sax "1.2.1"
+    url "0.10.3"
+    uuid "3.3.2"
+    xml2js "0.4.19"
+
 aws-sign2@~0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/aws-sign2/-/aws-sign2-0.7.0.tgz#b46e890934a9591f2d2f6f86d7e6a9f1b3fe76a8"
@@ -858,6 +872,10 @@ chalk@^4.0.0, chalk@^4.1.0:
   dependencies:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
+
+chance@^1.1.7:
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/chance/-/chance-1.1.7.tgz#e99dde5ac16681af787b5ba94c8277c090d6cfe8"
 
 chardet@^0.7.0:
   version "0.7.0"
@@ -3214,6 +3232,12 @@ serverless-appsync-plugin@^1.4.0:
     graphql-playground-middleware-koa "^1.6.4"
     koa "^2.5.2"
     ramda "^0.25.0"
+
+serverless-iam-roles-per-function@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/serverless-iam-roles-per-function/-/serverless-iam-roles-per-function-2.0.2.tgz#c64eb2f34552e59d5fb8cb2169ebbd27734a6774"
+  dependencies:
+    lodash "^4.17.15"
 
 serverless@2.4.0:
   version "2.4.0"

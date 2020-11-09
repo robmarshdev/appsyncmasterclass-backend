@@ -1,4 +1,19 @@
 Resources:
+  UsersTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      Tags:
+        - Key: Environment
+          Value: ${self:custom.stage}
+        - Key: Name
+          Value: users-table
   CognitoUserPool:
     Type: AWS::Cognito::UserPool
     Properties:
@@ -18,6 +33,16 @@ Resources:
           Name: name
           Required: false
           Mutable: true
+      LambdaConfig:
+        PostConfirmation: !GetAtt ConfirmUserSignupLambdaFunction.Arn
+
+  UserPoolInvokeConfirmUserSignupLambdaPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:invokeFunction
+      FunctionName: !Ref ConfirmUserSignupLambdaFunction
+      Principal: cognito-idp.amazonaws.com
+      SourceArn: !GetAtt CognitoUserPool.Arn
 
   WebUserPoolClient:
     Type: AWS::Cognito::UserPoolClient
