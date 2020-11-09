@@ -23,6 +23,7 @@ frameworkVersion: "2"
 plugins:
   - serverless-appsync-plugin
   - serverless-iam-roles-per-function
+  - serverless-export-env
 
 provider:
   name: aws
@@ -38,6 +39,7 @@ package:
     - package.json
 
 custom:
+  region: ${opt:region, self:provider.region}
   stage: ${opt:stage, self:provider.stage}
   appSync:
     - ${file(serverless.appsync-api.yml)}
