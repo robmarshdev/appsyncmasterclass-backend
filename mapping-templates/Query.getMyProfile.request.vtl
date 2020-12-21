@@ -1,0 +1,8 @@
+{
+    "version" : "2018-05-29",
+    "operation" : "GetItem",
+    "key" : {
+      ## https://docs.aws.amazon.com/appsync/latest/devguide/resolver-util-reference.html
+      "id" : $util.dynamodb.toDynamoDBJson($context.identity.username)
+    }
+}
