@@ -10,7 +10,10 @@
   "scripts": {
     "sls": "./node_modules/.bin/sls",
     "deploy": "./node_modules/.bin/sls deploy",
-    "integration-test": "jest --verbose ./__tests__/test_cases/integration"
+    "integration-test": "jest --verbose ./__tests__/test_cases/integration",
+    "e2e-test": "jest --verbose ./__tests__/test_cases/e2e",
+    "test": "yarn integration-test && yarn e2e-test",
+    "export-env": "AWS_PROFILE=personal-aws ./node_modules/.bin/sls export-env"
   },
   "devDependencies": {
     "@types/jest": "^26.0.15",

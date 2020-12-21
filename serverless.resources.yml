@@ -61,3 +61,6 @@ Outputs:
 
   CognitoUserPoolId:
     Value: !Ref CognitoUserPool
+
+  WebCognitoUserPoolClientId:
+    Value: !Ref WebUserPoolClient
