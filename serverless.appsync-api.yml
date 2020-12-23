@@ -16,6 +16,13 @@ mappingTemplates:
     request: Query.getMyProfile.request.vtl
     response: Query.getMyProfile.response.vtl
 
+  - type: Query
+    field: getImageUploadUrl
+    dataSource: getImageUploadUrlFunction
+    # don't need request/response vtl template when using lambda as the data source
+    request: false
+    response: false
+
   - type: Mutation
     field: editMyProfile
     dataSource: usersTable
@@ -27,3 +34,7 @@ dataSources:
     name: usersTable
     config:
       tableName: !Ref UsersTable
+  - type: AWS_LAMBDA
+    name: getImageUploadUrlFunction
+    config:
+      functionName: getImageUploadUrl
