@@ -168,6 +168,31 @@ const we_invoke_getImageUploadUrl = async (
   return await handler(event, context);
 };
 
+const a_user_calls_getImageUploadUrl = async (user, extension, contentType) => {
+  const query = `
+    query getImageUploadUrl($extension: String, $contentType: String) {
+      getImageUploadUrl(extension: $extension, contentType: $contentType)
+    }
+  `;
+
+  const variables = {
+    extension,
+    contentType,
+  };
+
+  const data = await GraphQL(
+    process.env.API_URL,
+    query,
+    variables,
+    user.accessToken
+  );
+  const url = data.getImageUploadUrl;
+
+  console.log(`[${user.username}] - got image upload url`);
+
+  return url;
+};
+
 module.exports = {
   we_invoke_confirmUserSignup,
   a_user_signs_up,
@@ -175,4 +200,5 @@ module.exports = {
   a_user_calls_getMyProfile,
   a_user_calls_editMyProfile,
   we_invoke_getImageUploadUrl,
+  a_user_calls_getImageUploadUrl,
 };

@@ -4,13 +4,13 @@ const chance = require("chance").Chance();
 const path = require("path");
 
 describe("Mutation.editMyProfile.request template", () => {
-  it("Should use newProfile fields in expression values", () => {
+  it("Should use profile fields in expression values", () => {
     const templatePath = path.resolve(
       __dirname,
       "../../../mapping-templates/Mutation.editMyProfile.request.vtl"
     );
     const username = chance.guid();
-    const newProfile = {
+    const profile = {
       name: "Rob",
       imageUrl: null,
       backgroundImageUrl: null,
@@ -19,7 +19,7 @@ describe("Mutation.editMyProfile.request template", () => {
       website: null,
       birthDate: null,
     };
-    const context = given.an_appsync_context({ username }, { newProfile });
+    const context = given.an_appsync_context({ username }, { profile });
     const result = when.we_invoke_an_appsync_template(templatePath, context);
 
     expect(result).toEqual({
