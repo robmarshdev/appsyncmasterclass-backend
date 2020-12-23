@@ -8,16 +8,16 @@
     "expression" : "set #name = :name, imageUrl = :imageUrl, backgroundImageUrl = :backgroundImageUrl, bio = :bio, #location = :location, website = :website, birthDate = :birthDate",
     "expressionNames" : {
       "#name" : "name",
-      "#location" : "location",
+      "#location" : "location"
     },
     "expressionValues" : {
-      ":name" : $util.dynamodb.toDynamoDBJson($context.arguments.profile.name),
-      ":imageUrl" : $util.dynamodb.toDynamoDBJson($context.arguments.profile.imageUrl),
-      ":backgroundImageUrl" : $util.dynamodb.toDynamoDBJson($context.arguments.profile.backgroundImageUrl),
-      ":bio" : $util.dynamodb.toDynamoDBJson($context.arguments.profile.bio),
-      ":location" : $util.dynamodb.toDynamoDBJson($context.arguments.profile.location),
-      ":website" : $util.dynamodb.toDynamoDBJson($context.arguments.profile.website),
-      ":birthDate" : $util.dynamodb.toDynamoDBJson($context.arguments.profile.birthDate),
+      ":name" : $util.dynamodb.toDynamoDBJson($context.arguments.newProfile.name),
+      ":imageUrl" : $util.dynamodb.toDynamoDBJson($context.arguments.newProfile.imageUrl),
+      ":backgroundImageUrl" : $util.dynamodb.toDynamoDBJson($context.arguments.newProfile.backgroundImageUrl),
+      ":bio" : $util.dynamodb.toDynamoDBJson($context.arguments.newProfile.bio),
+      ":location" : $util.dynamodb.toDynamoDBJson($context.arguments.newProfile.location),
+      ":website" : $util.dynamodb.toDynamoDBJson($context.arguments.newProfile.website),
+      ":birthDate" : $util.dynamodb.toDynamoDBJson($context.arguments.newProfile.birthDate)
     }
   },
   "condition" : {
