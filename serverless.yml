@@ -96,5 +96,21 @@ functions:
           - s3:PutObjectAcl
         Resource: !Sub ${AssetsBucket.Arn}/*
 
+  tweet:
+    handler: functions/tweet.handler
+    environment:
+      USERS_TABLE_NAME: !Ref UsersTable
+      TWEETS_TABLE_NAME: !Ref TweetsTable
+      TIMELINES_TABLE_NAME: !Ref TimelinesTable
+    iamRoleStatements:
+      - Effect: Allow
+        Action: dynamodb:UpdateItem
+        Resource: !GetAtt UsersTable.Arn
+      - Effect: Allow
+        Action: dynamodb:PutItem
+        Resource:
+          - !GetAtt TweetsTable.Arn
+          - !GetAtt TimelinesTable.Arn
+
 resources:
   - ${file(serverless.resources.yml)}
